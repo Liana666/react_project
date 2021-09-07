@@ -1,0 +1,50 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.container {
+  padding-top: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+.header__container {
+  padding: 20px 17%;
+  background: #dbdbdb;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__list {
+  padding: 0;
+
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.header__list li {
+  padding-right: 20px;
+}
+
+.header__search {
+  display: flex;
+}
+
+.header__search-btn {
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.input__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+}
