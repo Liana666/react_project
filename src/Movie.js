@@ -1,9 +1,9 @@
 import React, { createElement, createRef, useEffect, useState } from "react";
 
-function Movie() {
+export default function Movie() {
 
     const [hasError, setErrors] = useState(false);
-    const [movie, addMovie] = useState({});
+    const [movie, addMovie] = useState([]);
 
     let inputValue = React.createRef();
 
@@ -16,9 +16,11 @@ function Movie() {
 
             })
             .then((data) => {
-                console.log(addMovie(data))
+                addMovie(data.results);
+                console.log(data.results);
+
             })
-            .catch(err => setErrors(err));
+            .catch((error) => setErrors(error));
     }
 
 
@@ -26,14 +28,13 @@ function Movie() {
         <div>
             <input type="text" ref={inputValue} />
             <button onClick={getMovie}>Search</button>
-            {/* <div className="out">
-                {movie.map((item) => (
-                    <li>{item.original_title}</li>
-                ))}
-                <span>{JSON.stringify(movie)}</span>
-            </div> */}
+            <div className="out">
+                {movie.length !== 0 ? movie.map((item) => <li><img style={{ width: 150 }} src={`${imgSrc}${item.poster_path}`} /> {item.original_title}</li>) : 'No movies'}
+            </div>
         </div>
     )
-}
 
-export default Movie;
+
+
+
+}
